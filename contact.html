@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J-Teq | 견적 문의</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { margin: 0; font-family: 'Noto Sans KR', sans-serif; background-color: #f4f7f9; color: #333; }
+        header { background: white; padding: 15px 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .logo { color: #003366; text-decoration: none; display: flex; flex-direction: column; }
+        .logo-main { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 700; }
+        .logo-sub { font-size: 10px; color: #00AEEF; font-weight: 700; }
+        .nav-links a { margin-left: 25px; text-decoration: none; color: #555; font-weight: 700; transition: 0.3s; }
+        .nav-links a:hover { color: #00AEEF; }
+
+        .sub-header { background: linear-gradient(135deg, #003366 0%, #001a33 100%); color: white; padding: 60px 20px; text-align: center; }
+        
+        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; display: flex; gap: 50px; flex-wrap: wrap; }
+        .contact-form,
+        .contact-info { min-width: 0; }    
+        footer { width: 100%; clear: both; }
+        /* 문의 폼 영역 */
+        .contact-form { flex: 2; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .contact-form h2 { color: #003366; margin-top: 0; margin-bottom: 30px; }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 700; margin-bottom: 8px; color: #555; }
+        .form-group input, .form-group select, .form-group textarea { 
+            width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; box-sizing: border-box;
+        }
+        .form-group textarea { height: 150px; resize: none; }
+        .submit-btn { 
+            background: #00AEEF; color: white; border: none; padding: 15px 30px; font-size: 18px; font-weight: 700; 
+            border-radius: 8px; cursor: pointer; width: 100%; transition: 0.3s; 
+        }
+        .submit-btn:hover { background: #0088cc; }
+
+        /* 회사 정보 영역 */
+        .contact-info { flex: 1; min-width: 300px; }
+        .info-box { background: #003366; color: white; padding: 40px; border-radius: 20px; }
+        .info-box h3 { margin-top: 0; color: #00AEEF; }
+        .info-box p { line-height: 1.8; font-size: 15px; color: #e0e0e0; }
+        .info-box i { width: 25px; color: #00AEEF; }
+/* 추가 시작 */
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 24px;
+    color: #e0e0e0;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.info-item i {
+    color: #00AEEF;
+    min-width: 20px;
+    margin-top: 6px;
+}
+
+.info-item a {
+    color: #e0e0e0;
+    text-decoration: none;
+}
+
+.info-item a:hover {
+    color: #00AEEF;
+}
+
+.contact-time {
+    margin-top: 35px;
+    font-size: 13px;
+    color: #88aacc;
+}
+/* 추가 끝 */
+        footer { background: #002244; color: white; padding: 30px; text-align: center; font-size: 14px; margin-top: 50px; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <span class="logo-main">J-Teq</span>
+            <span class="logo-sub">Technology and Quality</span>
+        </a>
+        <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="solutions.html">정밀 검사 솔루션</a>
+    <a href="marking.html">마킹 시스템</a>
+    <a href="pneumatic.html">공압 및 공조 시스템</a>
+        </div>
+    </header>
+
+    <section class="sub-header">
+        <h1>Contact Us</h1>
+        <p>프로젝트 상담 및 견적 문의를 남겨주시면 전문가가 곧 연락드리겠습니다.</p>
+    </section>
+
+    <div class="container">
+        <div class="contact-form">
+            <h2>견적 및 기술 문의</h2>
+            <form>
+                <div class="form-group">
+                    <label>업체명 / 성함</label>
+                    <input type="text" placeholder="예: (주)제이텍 / 홍길동">
+                </div>
+                <div class="form-group">
+                    <label>연락처</label>
+                    <input type="text" placeholder="010-0000-0000">
+                </div>
+                <div class="form-group">
+                    <label>문의 분야</label>
+                    <select id="inquiryField" onchange="updateInquiryPlaceholder()">
+                        <option>선택해주세요</option>
+                        <option>정밀 검사 솔루션</option>
+                        <option>마킹 시스템</option>
+                        <option>공압 및 공조 시스템</option>
+                        <option>기타 기술 문의</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>문의 상세 내용</label>
+                    <textarea id="inquiryDetail" placeholder="테스트하려는 파트명, 요구 압력, 타겟 사이클 타임 등 상세 사양을 적어주시면 더 정확한 상담이 가능합니다."></textarea>
+                </div>
+                <button type="button" class="submit-btn" onclick="alert('문의가 접수되었습니다. (현재는 데모 상태입니다)')">문의하기</button>
+            </form>
+        </div>
+
+        <div class="contact-info">
+    <div class="info-box">
+        <h3>Contact Info</h3>
+
+        <div class="info-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>
+                부산광역시 사상구 괘법동 580-1<br>
+                청마마이우스 215호
+            </span>
+        </div>
+
+        <div class="info-item">
+            <i class="fa-solid fa-phone"></i>
+            <span>070-8600-0501</span>
+        </div>
+
+        <div class="info-item">
+            <i class="fa-solid fa-fax"></i>
+            <span>0303-3442-0502</span>
+        </div>
+
+        <div class="info-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:jsti2020@outlook.com">
+                jsti2020@outlook.com
+            </a>
+        </div>
+
+        <p class="contact-time">
+            상담 가능 시간: 평일 09:00 ~ 18:00
+        </p>
+    </div>
+</div>
+
+    <footer>
+        <p>&copy; 2026 J-Teq (제이텍). All rights reserved.</p>
+    </footer>
+
+    <script>
+        var defaultPlaceholder = '테스트하려는 파트명, 요구 압력, 타겟 사이클 타임 등 상세 사양을 적어주시면 더 정확한 상담이 가능합니다.';
+        var markingPlaceholder = '마킹 방법(레이저,타각,잉크), 제품의 재질(금속,플라스틱, 종이 등), 마킹 내용(QR코드, 바코드, 일련번호 등), 타겟 사이클 타임 등 상세 내용을 적어주시면 더 정확한 상담이 가능합니다.';
+
+        function updateInquiryPlaceholder() {
+            var detail = document.getElementById('inquiryDetail');
+            detail.placeholder = document.getElementById('inquiryField').value === '마킹 시스템'
+                ? markingPlaceholder
+                : defaultPlaceholder;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J-Teq | 공압 및 공조 시스템</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { margin: 0; font-family: 'Noto Sans KR', sans-serif; background-color: #f4f7f9; color: #333; line-height: 1.6; }
+        header { background: white; padding: 15px 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .logo { color: #003366; text-decoration: none; display: flex; flex-direction: column; }
+        .logo-main { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 700; }
+        .logo-sub { font-size: 10px; color: #00AEEF; font-weight: 700; }
+        .nav-links a { margin-left: 25px; text-decoration: none; color: #555; font-weight: 700; transition: 0.3s; }
+        .nav-links a:hover { color: #00AEEF; }
+        
+        .sub-header { background: linear-gradient(135deg, #003366 0%, #001a33 100%); color: white; padding: 80px 20px; text-align: center; }
+        .sub-header h1 { font-size: 36px; margin-bottom: 10px; }
+        .sub-header p { font-size: 18px; opacity: 0.9; }
+
+        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+        .solution-section { background: white; padding: 40px; border-radius: 20px; margin-bottom: 60px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .section-title { color: #003366; font-size: 28px; border-bottom: 2px solid #00AEEF; padding-bottom: 15px; margin-bottom: 30px; display: flex; align-items: center; gap: 10px; }
+        
+        .tab-menu { display: flex; gap: 10px; border-bottom: 2px solid #ddd; margin-bottom: 30px; }
+        .tab-btn { background: none; border: none; padding: 15px 30px; font-size: 18px; font-weight: 700; color: #888; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.3s; }
+        .tab-btn.active { color: #00AEEF; border-bottom-color: #00AEEF; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        .equipment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-top: 20px; }
+        .equipment-card { background: #f8f9fa; padding: 25px; border-radius: 12px; border-top: 4px solid #00AEEF; display: flex; flex-direction: column; min-height: 350px; }
+        .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .card-header img { width: 100px; height: 100px; object-fit: contain; cursor: pointer; border: 1px solid #e0e0e0; border-radius: 8px; padding: 5px; background: white; transition: 0.3s; }
+        .card-header img:hover { transform: scale(1.05); border-color: #00AEEF; }
+        .download-btn { display: inline-block; padding: 10px 15px; background-color: #ffffff; color: #003366; text-decoration: none; font-size: 14px; font-weight: 700; border-radius: 6px; border: 1px solid #cbd5e1; margin-top: auto; text-align: center; }
+        .download-btn:hover { background-color: #003366; color: white; }
+        
+        /* 모달 스타일 */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); }
+        .modal-content { margin: auto; display: block; max-width: 80%; max-height: 80%; margin-top: 50px; border-radius: 10px; }
+        .close-modal { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 50px; cursor: pointer; }
+        .modal-caption { text-align: center; color: #fff; margin-top: 10px; font-size: 18px; }
+        
+        footer { background: #002244; color: white; padding: 40px; text-align: center; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <span class="logo-main">J-Teq</span>
+            <span class="logo-sub">Technology and Quality</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="solutions.html">정밀 검사 솔루션</a>
+            <a href="marking.html">마킹 시스템</a>
+            <a href="contact.html">견적 문의</a>
+        </div>
+    </header>
+
+    <section class="sub-header">
+        <h1>Pneumatic & HVAC Systems</h1>
+        <p>고효율 산업용 설비 및 정밀 공압 솔루션</p>
+    </section>
+
+    <div class="container">
+        <section class="solution-section">
+            <div class="section-title"><i class="fa-solid fa-fan"></i> 공압 및 공조 시스템</div>
+            
+            <div class="tab-menu">
+                <button class="tab-btn active" onclick="openTab(event, 'compressor')">콤프레서</button>
+                <button class="tab-btn" onclick="openTab(event, 'motor')">모터</button>
+                <button class="tab-btn" onclick="openTab(event, 'valve')">밸브/기타</button>
+            </div>
+            
+            <div id="compressor" class="tab-content active">
+                <h3 style="color: #003366; margin-top: 20px;">EV 전동 컴프레서</h3>
+                <div class="equipment-grid">
+                    <div class="equipment-card">
+                        <h4>EV 전동 컴프레서 (EV Premium)</h4>
+                        <p>EV 열관리 및 히트펌프 시스템 최적화 솔루션 (Coming Soon)</p>
+                    </div>
+                </div>
+                <h3 style="color: #003366; margin-top: 40px;">범용 콤프레서 (Rotary/Reciprocating)</h3>
+                <div class="equipment-grid">
+                    <div class="equipment-card">
+                        <div class="card-header"><img src="로타리 콤프 (DC인버터).png" alt="DC Inverter Rotary" onclick="expandImage(this)"><h4>DC 인버터 로타리</h4></div>
+                        <p>고효율 에너지 절감 최적화 모델</p>
+                        <button class="download-btn" onclick="window.open('2022년 로터리 콤프레서 카탈로그.pdf', '_blank')">카탈로그 보기</button>
+                    </div>
+                    <div class="equipment-card">
+                        <div class="card-header"><img src="레시프로 콤프.png" alt="Reciprocating" onclick="expandImage(this)"><h4>레시프로 콤프레서</h4></div>
+                        <p>냉동/냉장 애플리케이션 범용 모델</p>
+                        <button class="download-btn" onclick="window.open('2023년 레시프로 콤프레서 카탈로그.pdf', '_blank')">카탈로그 보기</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="motor" class="tab-content">
+                <div class="equipment-grid">
+                    <div class="equipment-card">
+                        <div class="card-header"><img src="웰링 모터.png" alt="Welling" onclick="expandImage(this)"><h4>Welling 모터 시리즈</h4></div>
+                        <p>가전(에어컨, 세탁기) 및 상업용 고효율 모터 솔루션</p>
+                        <button class="download-btn" onclick="window.open('2025년 웰링 모터 카탈로그.pdf', '_blank')">카탈로그 보기</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="valve" class="tab-content">
+                <div class="equipment-grid">
+                    <div class="equipment-card">
+                        <div class="card-header"><img src="전자 팽창 밸브.png" alt="Valve" onclick="expandImage(this)"><h4>전자팽창밸브(EEV)</h4></div>
+                        <p>정밀 유량 제어를 통한 시스템 효율 극대화</p>
+                        <button class="download-btn" onclick="window.open('2026년 밸브 카탈로그.pdf', '_blank')">카탈로그 보기</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="imageModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="expandedImg">
+        <div id="modalCaption" class="modal-caption"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 J-Teq (제이텍). Technology and Quality. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabName).style.display = 'block';
+            evt.currentTarget.classList.add('active');
+        }
+        function expandImage(imgElement) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("expandedImg");
+            var captionText = document.getElementById("modalCaption");
+            modal.style.display = "block";
+            modalImg.src = imgElement.src;
+            captionText.innerHTML = imgElement.alt;
+        }
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+    </script>
+</body>
+</html>
