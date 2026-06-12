@@ -126,19 +126,37 @@
 
         /* 카탈로그 다운로드 버튼 스타일 */
 
-        .download-btn {
+        /* 카탈로그 다운로드 버튼 스타일 */
 
-            display: inline-block; padding: 10px 15px; background-color: #ffffff; color: #003366;
+.download-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 18px;
+    background: linear-gradient(135deg, #00AEEF, #0088cc);
+    color: white;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    margin-top: auto;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
-            text-decoration: none; font-size: 14px; font-weight: 700; border-radius: 6px;
-
-            border: 1px solid #cbd5e1; transition: all 0.3s; text-align: center; margin-top: auto;
-
-        }
-
-        .download-btn:hover { background-color: #003366; color: white; border-color: #003366; }
-
-        .download-btn i { margin-right: 6px; }
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,174,239,0.3);
+}
+.download-btn:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 3px 10px rgba(0,174,239,0.2);
+}
+.download-btn i {
+    margin-right: 6px;
+}
 
 
 
@@ -203,11 +221,12 @@
         </a>
 
         <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="marking.html">마킹 시스템</a>
-    <a href="pneumatic.html">공압 및 공조 시스템</a>
-    <a href="contact.html">견적 문의</a>
-
+            <a href="index.html">Home</a>
+            <a href="about.html">회사소개</a>
+            <a href="solutions.html">정밀 검사 솔루션</a>
+            <a href="marking.html">마킹 시스템</a>
+            <a href="pneumatic.html">공압 및 공조 시스템</a>
+            <a href="contact.html">견적 문의</a>
         </div>
 
     </header>
@@ -282,7 +301,7 @@
 
                         </ul>
 
-                        <button class="download-btn" onclick="window.open('1_C20WE_Spec_Kr.pdf', '_blank')">카탈로그 보기</button>
+                        <button class="download-btn" onclick="openCatalog('1_C20WE_Spec_Kr.pdf')">카탈로그 보기</button>
                     </div>
 
                    
@@ -315,7 +334,7 @@
 
                         </ul>
 
-                        <button class="download-btn" onclick="window.open('2_C28WE_Spec_Kr.pdf', '_blank')">카탈로그 보기</button>
+                        <button class="download-btn" onclick="openCatalog('2_C28WE_Spec_Kr.pdf')">카탈로그 보기</button>
 
                     </div>
 
@@ -349,7 +368,7 @@
 
                         </ul>
 
-                        <button class="download-btn" onclick="window.open('A28 spec sheet-KR.pdf', '_blank')">카탈로그 보기</button>
+                        <button class="download-btn" onclick="openCatalog('A28 spec sheet-KR.PDF')">카탈로그 보기</button>
 
                     </div>
 
@@ -383,7 +402,7 @@
 
                         </ul>
 
-                        <button class="download-btn" onclick="window.open('I28_specsheet_Kr-1.pdf', '_blank')">카탈로그 보기</button>
+                        <button class="download-btn" onclick="openCatalog('I28_specsheet_Kr-1.pdf')">카탈로그 보기</button>
 
                     </div>
 
@@ -431,7 +450,7 @@
 
                         </ul>
 
-                        <button class="download-btn" onclick="window.open('Pressure Transmitter.pdf', '_blank')">카탈로그 보기</button>
+                        <button class="download-btn" onclick="openCatalog('Pressure Transmitter.pdf')">카탈로그 보기</button>
 
                     </div>
 
@@ -465,7 +484,7 @@
 
                         </ul>
 
-                        <button class="download-btn" onclick="window.open('RSI-6485.pdf', '_blank')">카탈로그 보기</button>
+                        <button class="download-btn" onclick="openCatalog('RSI-6485.pdf')">카탈로그 보기</button>
 
                     </div>
 
@@ -502,6 +521,13 @@
 
 
     <script>
+
+        function openCatalog(pdfPath) {
+            var sep = pdfPath.indexOf('?') >= 0 ? '&' : '?';
+            var url = encodeURI(pdfPath) + sep + '_t=' + Date.now() + '#page=1';
+            var win = window.open('about:blank', '_blank');
+            if (win) win.location.replace(url);
+        }
 
         // 탭 전환 기능
 
@@ -576,20 +602,12 @@
         // 모달 배경을 클릭해도 닫히도록 설정
 
         window.onclick = function(event) {
-            var imageModal = document.getElementById("imageModal");
-            var catalogModal = document.getElementById("catalogModal");
+    var imageModal = document.getElementById("imageModal");
 
-            // 이미지 모달 닫기
-            if (event.target == imageModal) {
-                imageModal.style.display = "none";
-            }
-            
-            // 카탈로그 모달 닫기
-            if (event.target == catalogModal) {
-                catalogModal.style.display = "none";
-                document.getElementById("pdfViewer").src = ""; // PDF 초기화
-            }
-        }
+    if (event.target == imageModal) {
+        imageModal.style.display = "none";
+    }
+}
     </script>
 
 </body>
