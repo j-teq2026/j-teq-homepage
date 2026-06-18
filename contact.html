@@ -15,9 +15,31 @@
         .nav-links a { margin-left: 25px; text-decoration: none; color: #555; font-weight: 700; transition: 0.3s; }
         .nav-links a:hover { color: #00AEEF; }
 
-        .sub-header { background: linear-gradient(135deg, #003366 0%, #001a33 100%); color: white; padding: 60px 20px; text-align: center; }
+        .sub-header {
+    background: linear-gradient(135deg,#003366 0%,#001a33 100%);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.sub-header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.sub-header p {
+    font-size: 18px;
+    opacity: 0.9;
+}
         
-        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; display: flex; gap: 50px; flex-wrap: wrap; }
+        .container {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+}
         .contact-form,
         .contact-info { min-width: 0; }    
         footer { width: 100%; clear: both; }
@@ -75,7 +97,16 @@
     color: #88aacc;
 }
 /* 추가 끝 */
-        footer { background: #002244; color: white; padding: 30px; text-align: center; font-size: 14px; margin-top: 50px; }
+        footer {
+    width: 100%;
+    background: #002244;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 50px;
+    box-sizing: border-box;
+}
     </style>
 </head>
 <body>
@@ -89,14 +120,14 @@
         <a href="about.html">회사소개</a>
         <a href="solutions.html">정밀 검사 솔루션</a>
         <a href="marking.html">마킹 시스템</a>
-        <a href="pneumatic.html">공압 및 공조 시스템</a>
+        <a href="pneumatic.html">공조 및 산업 부품</a>
         <a href="contact.html">견적 문의</a>
         </div>
     </header>
 
     <section class="sub-header">
-        <h1>Contact Us</h1>
-        <p>프로젝트 상담 및 견적 문의를 남겨주시면 전문가가 곧 연락드리겠습니다.</p>
+        <h1>견적 문의</h1>
+<p>프로젝트 상담부터 기술 지원까지, 최적의 솔루션을 제안해 드립니다.</p>
     </section>
 
     <div class="container">
@@ -117,7 +148,7 @@
                         <option>선택해주세요</option>
                         <option>정밀 검사 솔루션</option>
                         <option>마킹 시스템</option>
-                        <option>공압 및 공조 시스템</option>
+                        <option>공조 및 산업 부품</option>
                         <option>기타 기술 문의</option>
                     </select>
                 </div>
@@ -169,15 +200,36 @@
     </footer>
 
     <script>
-        var defaultPlaceholder = '테스트하려는 파트명, 요구 압력, 타겟 사이클 타임 등 상세 사양을 적어주시면 더 정확한 상담이 가능합니다.';
-        var markingPlaceholder = '마킹 방법(레이저,타각,잉크), 제품의 재질(금속,플라스틱, 종이 등), 마킹 내용(QR코드, 바코드, 일련번호 등), 타겟 사이클 타임 등 상세 내용을 적어주시면 더 정확한 상담이 가능합니다.';
+      var defaultPlaceholder =
+'테스트하려는 파트명, 요구 압력, 타겟 사이클 타임 등 상세 사양을 적어주시면 더 정확한 상담이 가능합니다.';
 
-        function updateInquiryPlaceholder() {
-            var detail = document.getElementById('inquiryDetail');
-            detail.placeholder = document.getElementById('inquiryField').value === '마킹 시스템'
-                ? markingPlaceholder
-                : defaultPlaceholder;
-        }
+var markingPlaceholder =
+'마킹 방법(레이저, 타각, 잉크젯), 제품 재질(금속, 플라스틱 등), 마킹 내용(QR코드, 바코드, 일련번호 등), 타겟 사이클 타임을 적어주시면 더 정확한 상담이 가능합니다.';
+
+var industrialPlaceholder =
+'적용 제품, 냉매 종류, 요구 용량(Capacity), 전원 사양, 사용 환경 및 필요한 컴프레서·모터·밸브 사양을 적어주시면 더 정확한 상담이 가능합니다.';
+
+var etcPlaceholder =
+'문의 내용 및 요청 사항을 자유롭게 작성해 주시면 담당자가 확인 후 연락드리겠습니다.';
+
+function updateInquiryPlaceholder() {
+
+    var field = document.getElementById('inquiryField').value;
+    var detail = document.getElementById('inquiryDetail');
+
+    if(field === '마킹 시스템') {
+        detail.placeholder = markingPlaceholder;
+    }
+    else if(field === '공조 및 산업 부품') {
+        detail.placeholder = industrialPlaceholder;
+    }
+    else if(field === '기타 기술 문의') {
+        detail.placeholder = etcPlaceholder;
+    }
+    else {
+        detail.placeholder = defaultPlaceholder;
+    }
+}
     </script>
 </body>
 </html>
