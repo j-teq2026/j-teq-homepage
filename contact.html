@@ -137,15 +137,34 @@
             <form>
                 <div class="form-group">
                     <label>업체명 / 성함</label>
-                    <input type="text" placeholder="예: (주)제이텍 / 홍길동">
+                    <input
+    type="text"
+    id="name"
+    name="name"
+    placeholder="예: (주)제이텍 / 홍길동">
                 </div>
                 <div class="form-group">
+    <label>담당자 이메일</label>
+    <input type="email"
+           id="email"
+           name="email"
+           placeholder="example@company.com">
+</div>
+                <div class="form-group">
                     <label>연락처</label>
-                    <input type="text" placeholder="010-0000-0000">
+                    <input
+    type="tel"
+    id="phone"
+    name="phone"
+    placeholder="010-0000-0000"
+    maxlength="13">
                 </div>
                 <div class="form-group">
                     <label>문의 분야</label>
-                    <select id="inquiryField" onchange="updateInquiryPlaceholder()">
+                    <select
+    id="inquiryField"
+    name="category"
+    onchange="updateInquiryPlaceholder()">
                         <option>선택해주세요</option>
                         <option>정밀 검사 솔루션</option>
                         <option>마킹 시스템</option>
@@ -155,7 +174,11 @@
                 </div>
                 <div class="form-group">
                     <label>문의 상세 내용</label>
-                    <textarea id="inquiryDetail" placeholder="테스트하려는 파트명, 요구 압력, 타겟 사이클 타임 등 상세 사양을 적어주시면 더 정확한 상담이 가능합니다."></textarea>
+<textarea
+    id="inquiryDetail"
+    name="message"
+    placeholder="테스트하려는 파트명, 요구 압력, 타겟 사이클 타임 등 상세 사양을 적어주시면 더 정확한 상담이 가능합니다.">
+</textarea>
                 </div>
                 <button type="button" class="submit-btn" onclick="alert('문의가 접수되었습니다. (현재는 데모 상태입니다)')">문의하기</button>
             </form>
@@ -182,13 +205,19 @@
             <i class="fa-solid fa-fax"></i>
             <span>0303-3442-0502</span>
         </div>
+        <div class="info-item">
+    <i class="fa-solid fa-envelope"></i>
+    <a href="mailto:contact@j-teq.co.kr">
+    contact@j-teq.co.kr
+</a>
+</div>
 
         <div class="info-item">
-            <i class="fa-solid fa-envelope"></i>
-            <a href="mailto:jsti2020@outlook.com">
-                jsti2020@outlook.com
-            </a>
-        </div>
+    <i class="fa-solid fa-globe"></i>
+    <a href="https://www.j-teq.co.kr" target="_blank">
+        www.j-teq.co.kr
+    </a>
+</div>
 
         <p class="contact-time">
             상담 가능 시간: 평일 09:00 ~ 18:00
@@ -202,43 +231,80 @@
     </footer>
 
     <script>
-      var defaultPlaceholder =
-'테스트 대상 제품, 시험 압력, 허용 Leak Rate, 목표 Cycle Time 등 요구 사항을 작성해 주시면 보다 정확한 상담이 가능합니다.';
-
-var markingPlaceholder =
-'제품 재질, 마킹 방식(Fiber/UV/CO₂), 마킹 내용(QR·Barcode·Serial No.) 등을 작성해 주세요.';
-
-var industrialPlaceholder =
-'적용 제품, 냉매 종류, 요구 용량(Capacity), 전원 사양, 사용 환경 등을 작성해 주세요.';
-
-var etcPlaceholder =
-'문의 내용 및 요청 사항을 자유롭게 작성해 주시면 담당자가 확인 후 연락드리겠습니다.';
+      
 
 function updateInquiryPlaceholder() {
 
-    var field = document.getElementById('inquiryField').value;
-    var detail = document.getElementById('inquiryDetail');
+    const field = document.getElementById('inquiryField').value;
+    const detail = document.getElementById('inquiryDetail');
 
-    if(field === '선택해주세요'){
+    if (field === '선택해주세요') {
+
         detail.value = "";
-        detail.placeholder = "";
+
     }
-    else if(field === '정밀 검사 솔루션'){
-        detail.value = "";
-        detail.placeholder = defaultPlaceholder;
+
+    else if (field === '정밀 검사 솔루션') {
+
+        detail.value =
+`문의 내용을 작성해 주세요.
+
+예)
+• 적용 제품 :
+• 시험 압력 :
+• 허용 Leak Rate :
+• 목표 Cycle Time :
+• 생산량 :
+• 기타 요청 사항 :
+`;
+
     }
-    else if(field === '마킹 시스템'){
-        detail.value = "";
-        detail.placeholder = markingPlaceholder;
+
+    else if (field === '마킹 시스템') {
+
+        detail.value =
+`문의 내용을 작성해 주세요.
+
+예)
+• 적용 제품 :
+• 마킹 대상 재질 :
+• 마킹 크기 :
+• 생산량 :
+• 기타 요청 사항 :
+`;
+
     }
-    else if(field === '공조 및 산업 부품'){
-        detail.value = "";
-        detail.placeholder = industrialPlaceholder;
+
+    else if (field === '공조 및 산업 부품') {
+
+        detail.value =
+`문의 내용을 작성해 주세요.
+
+예)
+• 적용 제품 :
+• 냉매 종류 :
+• 요구 용량(Capacity) :
+• 전원 사양 :
+• 사용 환경 :
+• 기타 요청 사항 :
+`;
+
     }
-    else if(field === '기타 기술 문의'){
-        detail.value = "";
-        detail.placeholder = etcPlaceholder;
+
+    else if (field === '기타 기술 문의') {
+
+        detail.value =
+`문의 내용을 작성해 주세요.
+
+예)
+• 문의 내용 :
+• 적용 제품 :
+• 현재 문제점 :
+• 요청 사항 :
+`;
+
     }
+
 }
 // URL 파라미터 확인
 const params = new URLSearchParams(window.location.search);
@@ -340,6 +406,45 @@ if (field === 'industrial' && model) {
 
     document.getElementById('inquiryDetail').value = detail;
 }
+// ===============================
+// 연락처 자동 하이픈
+// ===============================
+const phoneInput = document.getElementById('phone');
+
+phoneInput.addEventListener('input', function (e) {
+
+    let number = e.target.value.replace(/\D/g, '');
+
+    // 최대 11자리
+    if (number.length > 11) {
+        number = number.substring(0, 11);
+    }
+
+    if (number.startsWith('02')) {
+
+        if (number.length < 3) {
+            e.target.value = number;
+        } else if (number.length < 6) {
+            e.target.value = number.replace(/(\d{2})(\d+)/, '$1-$2');
+        } else if (number.length < 10) {
+            e.target.value = number.replace(/(\d{2})(\d{3})(\d+)/, '$1-$2-$3');
+        } else {
+            e.target.value = number.replace(/(\d{2})(\d{4})(\d+)/, '$1-$2-$3');
+        }
+
+    } else {
+
+        if (number.length < 4) {
+            e.target.value = number;
+        } else if (number.length < 8) {
+            e.target.value = number.replace(/(\d{3})(\d+)/, '$1-$2');
+        } else {
+            e.target.value = number.replace(/(\d{3})(\d{4})(\d+)/, '$1-$2-$3');
+        }
+
+    }
+
+});
     </script>
 </body>
 </html>
