@@ -134,9 +134,18 @@
     <div class="container">
         <div class="contact-form">
             
-            <form>
-                <div class="form-group">
-                    <label>업체명 / 성함</label>
+            <form id="contactForm">
+
+    <input type="hidden"
+           name="access_key"
+           value="d572a24b-52ac-4006-949b-2d38c68d1bde">
+
+    <input type="checkbox"
+           name="botcheck"
+           style="display:none;">
+
+    <div class="form-group">
+        <label>업체명 / 성함</label>
                     <input
     type="text"
     id="name"
@@ -174,13 +183,23 @@
                 </div>
                 <div class="form-group">
                     <label>문의 상세 내용</label>
+
+<p id="guideText" class="guide-text">
+※ 아래 예시 양식에서 ':'(콜론) 뒤에 내용을 입력해 주세요.
+</p>
+
 <textarea
     id="inquiryDetail"
     name="message"
-    placeholder="테스트하려는 파트명, 요구 압력, 타겟 사이클 타임 등 상세 사양을 적어주시면 더 정확한 상담이 가능합니다.">
-</textarea>
+></textarea>
                 </div>
-                <button type="button" class="submit-btn" onclick="alert('문의가 접수되었습니다. (현재는 데모 상태입니다)')">문의하기</button>
+                <button
+type="submit"
+class="submit-btn">
+
+문의하기
+
+</button>
             </form>
         </div>
 
@@ -237,73 +256,85 @@ function updateInquiryPlaceholder() {
 
     const field = document.getElementById('inquiryField').value;
     const detail = document.getElementById('inquiryDetail');
+    const guide = document.getElementById('guideText');
 
     if (field === '선택해주세요') {
 
-        detail.value = "";
+    guide.innerHTML =
+    "※ 문의 분야를 먼저 선택해 주세요.";
 
-    }
+    detail.value = "";
+
+    detail.placeholder = "";
+
+}
 
     else if (field === '정밀 검사 솔루션') {
 
-        detail.value =
-`문의 내용을 작성해 주세요.
+    guide.innerHTML =
+"※ 아래 예시 양식에 맞춰 내용을 입력해 주세요.";
 
-예)
-• 적용 제품 :
+detail.placeholder = "";
+
+detail.value =
+`• 적용 제품 :
 • 시험 압력 :
 • 허용 Leak Rate :
 • 목표 Cycle Time :
 • 생산량 :
-• 기타 요청 사항 :
+• 기타 문의 사항 :
 `;
 
     }
 
     else if (field === '마킹 시스템') {
 
-        detail.value =
-`문의 내용을 작성해 주세요.
+    guide.innerHTML =
+"※ 아래 예시 양식에 맞춰 내용을 입력해 주세요.";
 
-예)
-• 적용 제품 :
+detail.placeholder = "";
+
+detail.value =
+`• 적용 제품 :
 • 마킹 대상 재질 :
 • 마킹 크기 :
 • 생산량 :
-• 기타 요청 사항 :
+• 기타 문의 사항 :
 `;
 
     }
 
     else if (field === '공조 및 산업 부품') {
 
-        detail.value =
-`문의 내용을 작성해 주세요.
+    guide.innerHTML =
+"※ 아래 예시 양식에 맞춰 내용을 입력해 주세요.";
 
-예)
-• 적용 제품 :
+detail.placeholder = "";
+
+detail.value =
+`• 적용 제품 :
 • 냉매 종류 :
 • 요구 용량(Capacity) :
 • 전원 사양 :
 • 사용 환경 :
-• 기타 요청 사항 :
+• 기타 문의 사항 :
 `;
 
     }
 
     else if (field === '기타 기술 문의') {
 
-        detail.value =
-`문의 내용을 작성해 주세요.
+    guide.innerHTML =
+    "※ 궁금하신 사항이나 요청 내용을 자유롭게 작성해 주세요.";
 
-예)
-• 문의 내용 :
-• 적용 제품 :
-• 현재 문제점 :
-• 요청 사항 :
-`;
+    detail.value = "";
 
-    }
+    detail.placeholder =
+    "문의 내용을 자유롭게 작성해 주세요.";
+
+}
+
+    
 
 }
 // URL 파라미터 확인
@@ -331,14 +362,11 @@ if (field === 'marking' && model) {
     document.getElementById('inquiryDetail').value =
 `제품 모델 : ${model}
 
-문의 내용을 작성해 주세요.
-
-예)
 • 적용 제품 :
 • 마킹 대상 재질 :
 • 마킹 크기 :
 • 생산량 :
-• 기타 요청 사항 :
+• 기타 문의 사항 :
 `;
 
 }
@@ -355,15 +383,12 @@ if (field === 'industrial' && model) {
         detail =
 `문의 제품 : ${model}
 
-문의 내용을 작성해 주세요.
-
-예)
 • 적용 제품 :
 • 냉매 종류 :
 • 요구 용량(Capacity) :
 • 전원 사양 :
 • 사용 환경 :
-• 기타 요청 사항 :
+• 기타 문의 사항 :
 `;
 
     }
@@ -373,15 +398,12 @@ if (field === 'industrial' && model) {
         detail =
 `문의 제품 : ${model}
 
-문의 내용을 작성해 주세요.
-
-예)
 • 적용 장비 :
 • 정격 전압 :
 • 정격 출력 :
 • 회전 속도(RPM) :
 • 사용 환경 :
-• 기타 요청 사항 :
+• 기타 문의 사항 :
 `;
 
     }
@@ -391,15 +413,12 @@ if (field === 'industrial' && model) {
         detail =
 `문의 제품 : ${model}
 
-문의 내용을 작성해 주세요.
-
-예)
 • 적용 장비 :
 • 냉매 종류 :
 • 밸브 용량 :
 • 제어 방식 :
 • 사용 환경 :
-• 기타 요청 사항 :
+• 기타 문의 사항 :
 `;
 
     }
@@ -445,6 +464,59 @@ phoneInput.addEventListener('input', function (e) {
     }
 
 });
-    </script>
+
+// ===============================
+// Web3Forms Final Integration
+// ===============================
+const form=document.getElementById("contactForm");
+
+form.addEventListener("submit",async function(e){
+e.preventDefault();
+
+const name=document.getElementById("name").value.trim();
+const email=document.getElementById("email").value.trim();
+const phone=document.getElementById("phone").value.trim();
+const category=document.getElementById("inquiryField").value;
+const message=document.getElementById("inquiryDetail").value.trim();
+
+if(!name){alert("업체명 또는 성함을 입력해주세요.");return;}
+const emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if(!emailPattern.test(email)){alert("올바른 이메일을 입력해주세요.");return;}
+const phonePattern=/^(01[016789]-\d{3,4}-\d{4}|02-\d{3,4}-\d{4}|0\d{2}-\d{3,4}-\d{4})$/;
+if(!phonePattern.test(phone)){alert("올바른 연락처를 입력해주세요.");return;}
+if(category==="선택해주세요"){alert("문의 분야를 선택해주세요.");return;}
+if(!message){alert("문의 내용을 입력해주세요.");return;}
+
+let fd=new FormData(form);
+fd.append("subject","[J-Teq] 새로운 견적 문의");
+fd.append("from_name","J-Teq Website");
+const data=Object.fromEntries(fd.entries());
+
+const btn=document.querySelector(".submit-btn");
+btn.disabled=true;
+btn.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> 전송 중...';
+
+try{
+const res=await fetch("https://api.web3forms.com/submit",{
+method:"POST",
+headers:{"Content-Type":"application/json","Accept":"application/json"},
+body:JSON.stringify(data)
+});
+const result=await res.json();
+if(result.success){
+alert("문의가 정상적으로 접수되었습니다.\n\n빠른 시간 내에 답변드리겠습니다.");
+form.reset();
+updateInquiryPlaceholder();
+}else{
+alert("전송 실패 : "+(result.message||"잠시 후 다시 시도해주세요."));
+}
+}catch(err){
+alert("네트워크 오류가 발생했습니다.");
+}
+btn.disabled=false;
+btn.innerHTML="문의하기";
+});
+</script>
+
 </body>
 </html>
