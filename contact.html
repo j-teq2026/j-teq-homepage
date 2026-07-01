@@ -134,7 +134,7 @@
     <div class="container">
         <div class="contact-form">
             
-            <form id="contactForm">
+            <form id="contactForm" onsubmit="return validateInquiryForm()">
 
     <input type="hidden"
            name="access_key"
@@ -145,35 +145,60 @@
            style="display:none;">
 
     <div class="form-group">
-        <label>업체명 / 성함</label>
-                    <input
-    type="text"
-    id="name"
-    name="name"
-    placeholder="예: (주)제이텍 / 홍길동">
-                </div>
-                <div class="form-group">
-    <label>담당자 이메일</label>
+    <label>업체명 *</label>
+    <input
+        type="text"
+        id="company"
+        name="company"
+        placeholder="예: (주)제이텍"
+        required>
+</div>
+
+<div class="form-group">
+    <label>담당자 성함 *</label>
+    <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="예: 홍길동"
+        required>
+</div>
+
+<div class="form-group">
+    <label>직책</label>
+    <input
+        type="text"
+        id="position"
+        name="position"
+        placeholder="예: 대표, 과장, 연구원">
+</div>
+
+<div class="form-group">
+    <label>이메일 *</label>
     <input type="email"
            id="email"
            name="email"
-           placeholder="example@company.com">
+           placeholder="example@company.com"
+           required>
+           
 </div>
                 <div class="form-group">
-                    <label>연락처</label>
+                    <label>연락처(휴대폰) *</label>
                     <input
     type="tel"
     id="phone"
     name="phone"
     placeholder="010-0000-0000"
-    maxlength="13">
+    maxlength="13"
+    required>
                 </div>
                 <div class="form-group">
-                    <label>문의 분야</label>
+                    <label>문의 분야 *</label>
                     <select
     id="inquiryField"
     name="category"
-    onchange="updateInquiryPlaceholder()">
+    onchange="updateInquiryPlaceholder()"
+    required>
                         <option>선택해주세요</option>
                         <option>정밀 검사 솔루션</option>
                         <option>마킹 시스템</option>
@@ -182,15 +207,16 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>문의 상세 내용</label>
+                    <label>문의 상세 내용 *</label>
 
 <p id="guideText" class="guide-text">
-※ 아래 예시 양식에서 ':'(콜론) 뒤에 내용을 입력해 주세요.
+    ※ 아래 예시 양식에 맞춰 내용을 입력해 주세요.
 </p>
 
 <textarea
     id="inquiryDetail"
     name="message"
+    required
 ></textarea>
                 </div>
                 <button
@@ -246,7 +272,7 @@ class="submit-btn">
  </div>  <!-- container 종료 -->
 
     <footer>
-        <p>&copy; 2026 J-Teq (제이텍). All rights reserved.</p>
+        <p>&copy; 2026 J-Teq (제이텍). Technology and Quality. All rights reserved.</p>
     </footer>
 
     <script>
@@ -473,19 +499,64 @@ const form=document.getElementById("contactForm");
 form.addEventListener("submit",async function(e){
 e.preventDefault();
 
+const company=document.getElementById("company").value.trim();
 const name=document.getElementById("name").value.trim();
 const email=document.getElementById("email").value.trim();
 const phone=document.getElementById("phone").value.trim();
 const category=document.getElementById("inquiryField").value;
 const message=document.getElementById("inquiryDetail").value.trim();
 
-if(!name){alert("업체명 또는 성함을 입력해주세요.");return;}
+if(!company){
+    alert("업체명을 입력해주세요.");
+    return;
+}
+
+if(!name){
+    alert("담당자 성함을 입력해주세요.");
+    return;
+}
 const emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 if(!emailPattern.test(email)){alert("올바른 이메일을 입력해주세요.");return;}
 const phonePattern=/^(01[016789]-\d{3,4}-\d{4}|02-\d{3,4}-\d{4}|0\d{2}-\d{3,4}-\d{4})$/;
 if(!phonePattern.test(phone)){alert("올바른 연락처를 입력해주세요.");return;}
 if(category==="선택해주세요"){alert("문의 분야를 선택해주세요.");return;}
-if(!message){alert("문의 내용을 입력해주세요.");return;}
+// 문의 상세 내용 검증
+if(category !== "기타 기술 문의"){
+
+    const lines = message.split("\n");
+
+    let hasInput = false;
+
+    for(const line of lines){
+
+        const idx = line.indexOf(":");
+
+        if(idx !== -1){
+
+            const value = line.substring(idx + 1).trim();
+
+            if(value !== ""){
+                hasInput = true;
+                break;
+            }
+
+        }
+
+    }
+
+    if(!hasInput){
+        alert("문의 상세 내용을 입력해주세요.");
+        return;
+    }
+
+}else{
+
+    if(message === ""){
+        alert("문의 내용을 입력해주세요.");
+        return;
+    }
+
+}
 
 let fd=new FormData(form);
 fd.append("subject","[J-Teq] 새로운 견적 문의");
