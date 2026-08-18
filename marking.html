@@ -36,7 +36,11 @@
         .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
         .solution-section { background: white; padding: 40px; border-radius: 20px; margin-bottom: 60px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .section-title { color: #003366; font-size: 28px; border-bottom: 2px solid #00AEEF; padding-bottom: 15px; margin-bottom: 30px; display: flex; align-items: center; gap: 10px; }
-        
+        .content-title {
+    color: #003366;
+    font-size: 24px;
+    margin: 30px 0 20px;
+}
         .tab-menu { display: flex; gap: 10px; border-bottom: 2px solid #ddd; margin-bottom: 30px; }
         .tab-btn { background: none; border: none; padding: 15px 30px; font-size: 18px; font-weight: 700; color: #888; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.3s; }
         .tab-btn.active { color: #00AEEF; border-bottom-color: #00AEEF; }
@@ -96,8 +100,8 @@
     </header>
 
     <section class="sub-header">
-        <h1>마킹 시스템</h1>
-<p>제품 식별 및 생산 이력 관리를 위한 산업용 마킹 솔루션</p>
+        <h1>산업용 마킹 시스템</h1>
+<p>레이저·도트·잉크젯 마킹을 통한 제품 식별 및 생산 이력 관리 솔루션</p>
     </section>
 
     <div class="container">
@@ -110,37 +114,65 @@
                 <button class="tab-btn" onclick="openTab(event, 'inkjet')">잉크젯 마킹기</button>
             </div>
             
-            <div id="laser" class="tab-content active">
-                <div class="equipment-grid">
+            <div id="laser" class="tab-content active"> 
+ 
+    <h2 class="content-title">레이저 마킹기</h2>
+
+    <p class="content-description">
+    자동차 부품 및 산업용 부품의 제품 식별과 생산 이력 관리를 위한 산업용 레이저 마킹 시스템을 제공합니다.<br>
+    Fiber, CO₂, UV 레이저를 활용하여 금속, 플라스틱 및 다양한 소재에 정밀한 마킹을 구현할 수 있습니다.
+</p>
+ 
+    <div class="equipment-grid">
                     <div class="equipment-card">
-                        <div class="card-header"><img src="Infini.png" alt="INFINI Series" onclick="expandImage(this)"><h4>INFINI Series</h4></div>
+                        <div class="card-header"><img src="Infini.png" alt="INFINI 산업용 레이저 마킹 시스템" onclick="expandImage(this)"><h3>INFINI Series</h3></div>
                         <p>
-Fiber, CO₂, UV 라인업을 통해<br>
-산업 현장에 최적화된 정밀 마킹 솔루션을 제공합니다.
+Fiber, CO₂, UV 레이저 라인업을 통해<br>
+자동차 부품 및 산업용 부품의 정밀한 제품 식별과 생산 이력 관리에 적합한 마킹 솔루션을 제공합니다.
 </p>
                         <button class="download-btn" onclick="openCatalog('Laser_infini 카탈로그.pdf')">카탈로그 보기</button>
                     </div>
                     <div class="equipment-card">
-                        <div class="card-header"><img src="UV KRYO_FINAL.jpg" alt="UV/KRYO Laser" onclick="expandImage(this)"><h4>UV/KRYO Series</h4></div>
-                        <p>플라스틱 및 특수 소재에 열 변형 없는 초정밀 마킹 구현</p>
+                        <div class="card-header"><img src="UV KRYO_FINAL.jpg" alt="UV/KRYO 산업용 UV 레이저 마킹 시스템" onclick="expandImage(this)"><h3>UV/KRYO Series</h3></div>
+                        <p>
+플라스틱 및 특수 소재에 적합한 UV 레이저 마킹 시스템으로<br>
+열 변형을 최소화하면서 선명하고 정밀한 마킹을 구현합니다.
+</p>
                         <button class="download-btn" onclick="openCatalog('Laser_UV KRYO 카탈로그.pdf')">카탈로그 보기</button>
                     </div>
                     
                 </div>
             </div>
             
-            <div id="dot" class="tab-content">
-                <h3 style="margin-top: 30px; color: #003366;"><i class="fa-solid fa-mobile-screen"></i> 휴대형 타각기</h3>
+            <div id="dot" class="tab-content"> 
+ 
+    <h2 class="content-title">도트 마킹기(타각기)</h2>
+
+    <p class="content-description">
+    자동차 부품 및 산업용 금속 부품의 제품 식별과 추적 관리를 위한 도트 마킹기 및 타각 시스템을 제공합니다.
+    <br>
+    휴대형 타각기부터 생산라인에 적용하는 고정형 타각기까지 다양한 마킹 환경에 대응할 수 있습니다.
+</p>
+ 
+    <h3 style="margin-top: 30px; color: #003366;"> 
+        <i class="fa-solid fa-mobile-screen"></i> 휴대형 타각기 
+    </h3>
                 <div class="equipment-grid">
                     <div class="equipment-card">
-                        <div class="card-header"><img src="MarkinBox R.jpg" alt="MarkinBOX" onclick="expandImage(this)"><h4>MarkinBOX</h4></div>
-                        <p>경량화 설계로 어디서든 편리한 휴대형 타각 시스템</p>
+                        <div class="card-header"><img src="MarkinBox R.jpg" alt="MarkinBOX 휴대형 도트 마킹 시스템" onclick="expandImage(this)"><h4>MarkinBOX</h4></div>
+                        <p>
+자동차 부품 및 금속 부품의 제품 식별을 위한<br>
+경량 휴대형 도트 마킹 시스템으로 현장에서 편리하게 사용할 수 있습니다.
+</p>
                         <button class="download-btn" onclick="openCatalog('타각_MarkinBOX 카탈로그.pdf')">카탈로그 보기
                         </button>
                     </div>
                     <div class="equipment-card">
-                        <div class="card-header"><img src="Patmark.JPG" alt="Patmark" onclick="expandImage(this)"><h4>Patmark</h4></div>
-                        <p>강력한 배터리 기반의 무선 휴대형 타각 솔루션</p>
+                        <div class="card-header"><img src="Patmark.JPG" alt="Patmark 휴대형 도트 마킹 시스템" onclick="expandImage(this)"><h4>Patmark</h4></div>
+                        <p>
+배터리 기반의 무선 휴대형 도트 마킹 시스템으로<br>
+자동차 및 산업용 금속 부품의 현장 마킹 작업에 적합합니다.
+</p>
                         <button class="download-btn" onclick="openCatalog('타각_Patmark 카탈로그.pdf')">카탈로그 보기
                         </button>
                     </div>
@@ -149,24 +181,33 @@ Fiber, CO₂, UV 라인업을 통해<br>
                 <h3 style="margin-top: 50px; color: #003366;"><i class="fa-solid fa-industry"></i> 고정형 타각기</h3>
                 <div class="equipment-grid">
                     <div class="equipment-card">
-                        <div class="card-header"><img src="TeleScribe.png" alt="TeleScribe SC2000" onclick="expandImage(this)"><h4>TeleScribe SC2000</h4></div>
-                        <p>스크라이빙 방식으로 소음이 적고 정밀한<br> 고정형 시스템</p>
+                        <div class="card-header"><img src="TeleScribe.png" alt="TeleScribe SC2000 고정형 타각 마킹 시스템" onclick="expandImage(this)"><h4>TeleScribe SC2000</h4></div>
+                        <p>
+스크라이빙 방식의 고정형 마킹 시스템으로<br>
+자동차 및 산업용 금속 부품에 조용하고 정밀한 영구 마킹을 구현합니다.
+</p>
                         <button class="download-btn"
 onclick="location.href='contact.html?field=marking&model=SC2000'">
 제품 문의
 </button>
                     </div>
                     <div class="equipment-card">
-                        <div class="card-header"><img src="TMP3200.png" alt="TMP3200" onclick="expandImage(this)"><h4>TMP3200</h4></div>
-                        <p>Telesis 대표 고정형 핀타입 타각 시스템</p>
+                        <div class="card-header"><img src="TMP3200.png" alt="TMP3200 고정형 타각 마킹 시스템" onclick="expandImage(this)"><h4>TMP3200</h4></div>
+                        <p>
+핀타입 방식의 고정형 도트 마킹 시스템으로<br>
+자동차 부품 및 금속 부품의 문자, 숫자, 로고 등을 정밀하게 마킹할 수 있습니다.
+</p>
                         <button class="download-btn"
 onclick="location.href='contact.html?field=marking&model=TMP3200'">
 제품 문의
 </button>
                     </div>
                     <div class="equipment-card">
-                        <div class="card-header"><img src="TMP6100.png" alt="TMP6100" onclick="expandImage(this)"><h4>TMP6100</h4></div>
-                        <p>대형 작업 영역을 지원하는 고정형 타각 솔루션</p>
+                        <div class="card-header"><img src="TMP6100.png" alt="TMP6100 고정형 타각 마킹 시스템" onclick="expandImage(this)"><h4>TMP6100</h4></div>
+                        <p>
+대형 부품 및 넓은 작업 영역에 대응하는 고정형 도트 마킹 시스템으로<br>
+산업용 부품의 문자, 숫자 및 식별 정보를 정밀하게 마킹합니다.
+</p>
                         <button class="download-btn"
 onclick="location.href='contact.html?field=marking&model=TMP6100'">
 제품 문의
@@ -176,16 +217,32 @@ onclick="location.href='contact.html?field=marking&model=TMP6100'">
                 </div>
             </div>
 
-            <div id="inkjet" class="tab-content">
-                <div class="equipment-grid">
+            <div id="inkjet" class="tab-content"> 
+ 
+    <h2 class="content-title">잉크젯 마킹기</h2>
+
+    <p class="content-description">
+        자동차 부품 및 산업용 제품의 문자, 숫자, 로고, 생산 정보 등을
+        빠르고 선명하게 인쇄할 수 있는 산업용 잉크젯 마킹 솔루션을 제공합니다.<br>
+        생산라인용 고정형 프린터와 이동이 편리한 휴대형 프린터를 통해
+        다양한 생산 환경에 적용할 수 있습니다.
+    </p>
+ 
+    <div class="equipment-grid">
                     <div class="equipment-card">
-                        <div class="card-header"><img src="MoEco 2000.png" alt="MoEco 2000" onclick="expandImage(this)"><h4>MoEco 2000</h4></div>
-                        <p>높은 경제성과 시스템 안정성을 갖춘 고해상도 열전사 잉크젯 프린터</p>
+                        <div class="card-header"><img src="MoEco 2000.png" alt="MoEco 2000 산업용 잉크젯 프린터" onclick="expandImage(this)"><h3>MoEco 2000</h3></div>
+                        <p>
+고해상도 열전사 잉크젯 프린터로<br>
+생산일자, LOT 번호, 제품 정보 등의 다양한 데이터를 빠르고 선명하게 인쇄할 수 있습니다.
+</p>
                         <button class="download-btn" onclick="openCatalog('MoECO 2000 카탈로그.pdf')">카탈로그 보기</button>
                     </div>
                     <div class="equipment-card">
-                        <div class="card-header"><img src="VB-254.png" alt="VB-254" onclick="expandImage(this)"><h4>VB-254</h4></div>
-                        <p>편의성과 기동성을 극대화한 고성능 휴대형 프린터</p>
+                        <div class="card-header"><img src="VB-254.png" alt="VB-254 산업용 잉크젯 프린터" onclick="expandImage(this)"><h3>VB-254</h3></div>
+                        <p>
+휴대가 간편한 산업용 잉크젯 프린터로<br>
+생산 현장에서 문자, 숫자, 로고 및 다양한 제품 정보를 편리하게 인쇄할 수 있습니다.
+</p>
                         <button class="download-btn" onclick="openCatalog('VB-254카다로그.pdf')">카탈로그 보기</button>
                     </div>
                 </div>
