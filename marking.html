@@ -117,7 +117,56 @@
     font-size: 18px;
     font-weight: 700;
 }
+/* MoEco 2000 제품 이미지 + 실제 마킹 영상 */
+.inkjet-media-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
 
+.inkjet-media-item {
+    text-align: center;
+}
+
+.inkjet-media-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 5px;
+    background: white;
+    box-sizing: border-box;
+}
+
+.inkjet-media-item video {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #111;
+    display: block;
+}
+
+.inkjet-media-title {
+    margin-top: 10px;
+    color: #003366;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+@media (max-width: 700px) {
+    .inkjet-media-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .inkjet-media-item img,
+    .inkjet-media-item video {
+        height: auto;
+        max-height: 320px;
+    }
+}
 @media (max-width: 700px) {
     .infini-media-grid {
         grid-template-columns: 1fr;
@@ -330,22 +379,86 @@ onclick="location.href='contact.html?field=marking&model=TMP6100'">
     </p>
  
     <div class="equipment-grid">
-                    <div class="equipment-card">
-                        <div class="card-header"><img src="MoEco 2000.png" alt="MoEco 2000 산업용 잉크젯 프린터" onclick="expandImage(this)"><h3>MoEco 2000</h3></div>
-                        <p>
-고해상도 열전사 잉크젯 프린터로<br>
-생산일자, LOT 번호, 제품 정보 등의 다양한 데이터를 빠르고 선명하게 인쇄할 수 있습니다.
-</p>
-                        <button class="download-btn" onclick="openCatalog('MoECO 2000 카탈로그.pdf')">카탈로그 보기</button>
-                    </div>
-                    <div class="equipment-card">
-                        <div class="card-header"><img src="VB-254.png" alt="VB-254 산업용 잉크젯 프린터" onclick="expandImage(this)"><h3>VB-254</h3></div>
-                        <p>
-휴대가 간편한 산업용 잉크젯 프린터로<br>
-생산 현장에서 문자, 숫자, 로고 및 다양한 제품 정보를 편리하게 인쇄할 수 있습니다.
-</p>
-                        <button class="download-btn" onclick="openCatalog('VB-254카다로그.pdf')">카탈로그 보기</button>
-                    </div>
+                    <!-- MoEco 2000 -->
+<div class="equipment-card">
+
+    <div class="inkjet-media-grid">
+
+        <!-- MoEco 2000 제품 이미지 -->
+        <div class="inkjet-media-item">
+            <img
+                src="MoEco 2000.png"
+                alt="MoEco 2000 산업용 잉크젯 프린터"
+                onclick="expandImage(this)">
+            <div class="inkjet-media-title">
+                MoEco 2000
+            </div>
+        </div>
+
+        <!-- MoEco 2000 실제 마킹 영상 -->
+        <div class="inkjet-media-item">
+            <video controls preload="metadata">
+                <source src="MoEco-2000-web.mp4" type="video/mp4">
+                브라우저에서 동영상을 지원하지 않습니다.
+            </video>
+            <div class="inkjet-media-title">
+                실제 마킹 영상
+            </div>
+        </div>
+
+    </div>
+
+    <p>
+        고해상도 열전사 잉크젯 프린터로<br>
+        생산일자, LOT 번호, 제품 정보 등의 다양한 데이터를 빠르고 선명하게 인쇄할 수 있습니다.
+    </p>
+
+    <button class="download-btn"
+            onclick="openCatalog('MoECO 2000 카탈로그.pdf')">
+        카탈로그 보기
+    </button>
+
+</div>
+                    <!-- VB-254 -->
+<div class="equipment-card">
+
+    <div class="inkjet-media-grid">
+
+        <!-- VB-254 제품 이미지 -->
+        <div class="inkjet-media-item">
+            <img
+                src="VB-254.png"
+                alt="VB-254 산업용 잉크젯 프린터"
+                onclick="expandImage(this)">
+            <div class="inkjet-media-title">
+                VB-254
+            </div>
+        </div>
+
+        <!-- VB-254 실제 마킹 영상 -->
+        <div class="inkjet-media-item">
+            <video controls preload="metadata">
+                <source src="VB-254-horizontal-web.mp4" type="video/mp4">
+                브라우저에서 동영상을 지원하지 않습니다.
+            </video>
+            <div class="inkjet-media-title">
+                실제 마킹 영상
+            </div>
+        </div>
+
+    </div>
+
+    <p>
+        휴대가 간편한 산업용 잉크젯 프린터로<br>
+        생산 현장에서 문자, 숫자, 로고 및 다양한 제품 정보를 편리하게 인쇄할 수 있습니다.
+    </p>
+
+    <button class="download-btn"
+            onclick="openCatalog('VB-254카다로그.pdf')">
+        카탈로그 보기
+    </button>
+
+</div>
                 </div>
             </div>
             <div class="marking-summary">
