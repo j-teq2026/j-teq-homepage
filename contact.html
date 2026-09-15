@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>J-Teq | 압력센서·리크테스트·검사장비 문의</title>
+    <title>J-Teq | 리크테스트·압력센서·마킹 시스템·검사장비 문의</title>
 <meta name="description" content="고정밀 압력센서, 리크테스트 및 산업용 검사·계측 솔루션에 대한 제품 문의와 기술 상담을 요청하실 수 있습니다.">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -202,10 +202,11 @@
     onchange="updateInquiryPlaceholder()"
     required>
                         <option>선택해주세요</option>
-                        <option>정밀 검사 솔루션</option>
-                        <option>마킹 시스템</option>
-                        <option>공조 및 산업 부품</option>
-                        <option>기타 기술 문의</option>
+<option>리크 테스트</option>
+<option>압력 측정 및 계측 제품</option>
+<option>마킹 시스템</option>
+<option>공조 및 산업 부품</option>
+<option>기타 기술 문의</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -297,7 +298,7 @@ function updateInquiryPlaceholder() {
 
 }
 
-    else if (field === '정밀 검사 솔루션') {
+    else if (field === '리크 테스트') {
 
     guide.innerHTML =
 "※ 아래 예시 양식에 맞춰 내용을 입력해 주세요.";
@@ -315,6 +316,23 @@ detail.value =
 
     }
 
+    else if (field === '압력 측정 및 계측 제품') {
+
+    guide.innerHTML =
+    "※ 아래 예시 양식에 맞춰 내용을 입력해 주세요.";
+
+    detail.placeholder = "";
+
+    detail.value =
+`• 적용 제품 :
+• 측정 압력 범위 :
+• 요구 정확도 :
+• 출력 방식 :
+• 사용 환경 :
+• 기타 문의 사항 :
+`;
+
+}
     else if (field === '마킹 시스템') {
 
     guide.innerHTML =
@@ -375,7 +393,7 @@ if (field === 'industrial') {
     document.getElementById('inquiryField').value = '공조 및 산업 부품';
 }
 else if (field === 'inspection') {
-    document.getElementById('inquiryField').value = '정밀 검사 솔루션';
+    document.getElementById('inquiryField').value = '리크 테스트';
 }
 else if (field === 'marking') {
     document.getElementById('inquiryField').value = '마킹 시스템';
