@@ -102,6 +102,24 @@
     box-sizing: border-box;
 }
 
+.infini-media-item img {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.infini-media-item img:hover {
+    transform: scale(1.05);
+    border-color: #00AEEF;
+}
+.inkjet-media-item img {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.inkjet-media-item img:hover {
+    transform: scale(1.05);
+    border-color: #00AEEF;
+}
 .infini-media-item video {
     width: 100%;
     height: 180px;
@@ -207,6 +225,10 @@
         .modal-caption { text-align: center; color: #fff; margin-top: 10px; font-size: 18px; }
         
         footer { background: #002244; color: white; padding: 40px; text-align: center; font-size: 14px; }
+
+        .single-equipment-grid {
+    width: calc(50% - 12px);
+}
     </style>
 </head>
 <body>
@@ -283,13 +305,44 @@ Fiber, CO₂, UV 레이저 라인업을 통해 제품 특성과 마킹 목적에
                         <button class="download-btn" onclick="openCatalog('Laser_infini 카탈로그.pdf')">카탈로그 보기</button>
                     </div>
                     <div class="equipment-card">
-                        <div class="card-header"><img src="UV KRYO_FINAL.jpg" alt="UV/KRYO 산업용 UV 레이저 마킹 시스템" onclick="expandImage(this)"><h3>UV/KRYO Series</h3></div>
-                        <p>
-플라스틱 및 특수 소재에 적합한 UV 레이저 마킹 시스템으로<br>
-열 변형을 최소화하면서 선명하고 정밀한 마킹을 구현합니다.
-</p>
-                        <button class="download-btn" onclick="openCatalog('Laser_UV KRYO 카탈로그.pdf')">카탈로그 보기</button>
-                    </div>
+
+    <div class="infini-media-grid">
+
+        <!-- UV/KRYO Series 제품 이미지 -->
+        <div class="infini-media-item">
+            <img
+                src="UV KRYO_FINAL.jpg"
+                alt="UV/KRYO Series 산업용 UV 레이저 마킹 시스템"
+                onclick="expandImage(this)">
+            <h3 class="infini-media-title">
+                UV/KRYO Series
+            </h3>
+        </div>
+
+        <!-- UV/KRYO Series 실제 마킹 영상 -->
+        <div class="infini-media-item">
+            <video controls preload="metadata">
+                <source src="UV-KRYO-marking.mp4" type="video/mp4">
+                브라우저에서 동영상을 지원하지 않습니다.
+            </video>
+            <div class="infini-media-title">
+                실제 UV 마킹 영상
+            </div>
+        </div>
+
+    </div>
+
+    <p>
+        플라스틱 및 특수 소재에 적합한 UV 레이저 마킹 시스템으로<br>
+        열 변형을 최소화하면서 선명하고 정밀한 마킹을 구현합니다.
+    </p>
+
+    <button class="download-btn"
+            onclick="openCatalog('Laser_UV KRYO 카탈로그.pdf')">
+        카탈로그 보기
+    </button>
+
+</div>
                     
                 </div>
             </div>
@@ -317,51 +370,170 @@ Fiber, CO₂, UV 레이저 라인업을 통해 제품 특성과 마킹 목적에
                         </button>
                     </div>
                     <div class="equipment-card">
-                        <div class="card-header"><img src="Patmark.JPG" alt="Patmark 휴대형 도트 마킹 시스템" onclick="expandImage(this)"><h4>Patmark</h4></div>
-                        <p>
-    배터리 기반의 무선 휴대형 도트 마킹 시스템으로<br>
-    전원 연결이 어려운 현장에서도 편리하게 마킹 작업을 수행할 수 있습니다.
-</p>
-                        <button class="download-btn" onclick="openCatalog('타각_Patmark 카탈로그.pdf')">카탈로그 보기
-                        </button>
-                    </div>
+
+    <div class="infini-media-grid">
+
+        <!-- Patmark 제품 이미지 -->
+        <div class="infini-media-item">
+            <img
+                src="Patmark.JPG"
+                alt="Patmark 휴대형 도트 마킹 시스템"
+                onclick="expandImage(this)">
+            <h3 class="infini-media-title">
+                Patmark
+            </h3>
+        </div>
+
+        <!-- Patmark 실제 마킹 영상 -->
+        <div class="infini-media-item">
+            <video controls preload="metadata">
+                <source src="Patmark-marking.mp4" type="video/mp4">
+                브라우저에서 동영상을 지원하지 않습니다.
+            </video>
+            <div class="infini-media-title">
+                실제 마킹 영상
+            </div>
+        </div>
+
+    </div>
+
+    <p>
+        배터리 기반의 무선 휴대형 도트 마킹 시스템으로<br>
+        전원 연결이 어려운 현장에서도 편리하게 마킹 작업을 수행할 수 있습니다.
+    </p>
+
+    <button class="download-btn"
+            onclick="openCatalog('타각_Patmark 카탈로그.pdf')">
+        카탈로그 보기
+    </button>
+
+</div>
                     
                 </div>
                 <h3 style="margin-top: 50px; color: #003366;"><i class="fa-solid fa-industry"></i> 고정형 타각기</h3>
                 <div class="equipment-grid">
                     <div class="equipment-card">
-                        <div class="card-header"><img src="TeleScribe.png" alt="TeleScribe SC2000 고정형 타각 마킹 시스템" onclick="expandImage(this)"><h4>TeleScribe SC2000</h4></div>
-                        <p>
-    스크라이빙 방식의 고정형 타각기로<br>
-    소음이 적고 정밀한 영구 마킹을 구현합니다.
-</p>
-                        <button class="download-btn"
-onclick="location.href='contact.html?field=marking&model=SC2000'">
-제품 문의
-</button>
-                    </div>
+
+    <div class="infini-media-grid">
+
+        <!-- TeleScribe SC2000 제품 이미지 -->
+        <div class="infini-media-item">
+            <img
+                src="TeleScribe.png"
+                alt="TeleScribe SC2000 고정형 타각 마킹 시스템"
+                onclick="expandImage(this)">
+            <h3 class="infini-media-title">
+                TeleScribe SC2000
+            </h3>
+        </div>
+
+        <!-- TeleScribe SC2000 실제 마킹 영상 -->
+        <div class="infini-media-item">
+            <video controls preload="metadata">
+                <source src="SC2000-marking.mp4" type="video/mp4">
+                브라우저에서 동영상을 지원하지 않습니다.
+            </video>
+            <div class="infini-media-title">
+                실제 마킹 영상
+            </div>
+        </div>
+
+    </div>
+
+    <p>
+        스크라이빙 방식의 고정형 타각기로<br>
+        소음이 적고 정밀한 영구 마킹을 구현합니다.
+    </p>
+
+    <button class="download-btn"
+            onclick="location.href='contact.html?field=marking&model=SC2000'">
+        제품 문의
+    </button>
+
+</div>
                     <div class="equipment-card">
-                        <div class="card-header"><img src="TMP3200.png" alt="TMP3200 고정형 타각 마킹 시스템" onclick="expandImage(this)"><h4>TMP3200</h4></div>
+
+    <div class="infini-media-grid">
+
+        <!-- TMP3200 제품 이미지 -->
+        <div class="infini-media-item">
+            <img
+                src="TMP3200.png"
+                alt="TMP3200 고정형 타각 마킹 시스템"
+                onclick="expandImage(this)">
+            <h3 class="infini-media-title">
+                TMP3200
+            </h3>
+        </div>
+
+        <!-- TMP3200 실제 마킹 영상 -->
+        <div class="infini-media-item">
+            <video controls preload="metadata">
+                <source src="TMP3200-marking.mp4" type="video/mp4">
+                브라우저에서 동영상을 지원하지 않습니다.
+            </video>
+            <div class="infini-media-title">
+                실제 마킹 영상
+            </div>
+        </div>
+
+    </div>
+
+    <p>
+        핀타입 방식의 고정형 도트 마킹 시스템으로<br>
+        문자, 숫자, 로고 등 다양한 식별 정보를 정밀하게 마킹할 수 있습니다.
+    </p>
+
+    <button class="download-btn"
+            onclick="location.href='contact.html?field=marking&model=TMP3200'">
+        제품 문의
+    </button>
+
+</div>
+                                    </div>
+
+                <!-- TMP6100 별도 카드 -->
+                <div class="equipment-grid single-equipment-grid">
+    <div class="equipment-card">
+
+                        <div class="infini-media-grid">
+
+                            <!-- TMP6100 제품 이미지 -->
+                            <div class="infini-media-item">
+                                <img
+                                    src="TMP6100.png"
+                                    alt="TMP6100 고정형 타각 마킹 시스템"
+                                    onclick="expandImage(this)">
+                                <h3 class="infini-media-title">
+                                    TMP6100
+                                </h3>
+                            </div>
+
+                            <!-- TMP6100 실제 마킹 영상 -->
+                            <div class="infini-media-item">
+                                <video controls preload="metadata">
+                                    <source src="TMP6100-marking.mp4" type="video/mp4">
+                                    브라우저에서 동영상을 지원하지 않습니다.
+                                </video>
+                                <div class="infini-media-title">
+                                    실제 마킹 영상
+                                </div>
+                            </div>
+
+                        </div>
+
                         <p>
-    핀타입 방식의 고정형 도트 마킹 시스템으로<br>
-    문자, 숫자, 로고 등 다양한 식별 정보를 정밀하게 마킹할 수 있습니다.
-</p>
+                            대형 부품과 넓은 작업 영역에 대응하는 고정형 도트 마킹 시스템으로<br>
+                            생산라인의 다양한 부품에 안정적인 영구 마킹을 구현합니다.
+                        </p>
+
                         <button class="download-btn"
-onclick="location.href='contact.html?field=marking&model=TMP3200'">
-제품 문의
-</button>
+                                onclick="location.href='contact.html?field=marking&model=TMP6100'">
+                            제품 문의
+                        </button>
+
                     </div>
-                    <div class="equipment-card">
-                        <div class="card-header"><img src="TMP6100.png" alt="TMP6100 고정형 타각 마킹 시스템" onclick="expandImage(this)"><h4>TMP6100</h4></div>
-                        <p>
-    대형 부품과 넓은 작업 영역에 대응하는 고정형 도트 마킹 시스템으로<br>
-    생산라인의 다양한 부품에 안정적인 영구 마킹을 구현합니다.
-</p>
-                        <button class="download-btn"
-onclick="location.href='contact.html?field=marking&model=TMP6100'">
-제품 문의
-</button>
-                    </div>
+                
                     
                 </div>
             </div>
